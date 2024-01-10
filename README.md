@@ -7,7 +7,7 @@
 4. assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
 5. (Optional) you can change the openai model by updating the `OPENAI_MODEL`, given that you have access to the model.
 3. build the docker image `docker build . -t chatapp`
-4. run the docker image `docker run -p 8051:8051 chatapp`
+4. run the docker image `docker run --shm-size="2g" -p 8501:8501 chatapp`
 5. finally go to `http://localhost:8501` to enjoy the app
 
 ### Tech stack used

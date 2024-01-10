@@ -11,6 +11,7 @@ blinker==1.7.0
 cachetools==5.3.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
+chromedriver-py==120.0.6099.109
 click==8.1.7
 dataclasses-json==0.6.3
 Deprecated==1.2.14

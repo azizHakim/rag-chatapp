@@ -9,6 +9,9 @@ from selenium.webdriver.common.by import By
 def get_article_links(query):
     # Initialize headless Chrome driver with specific user-agent
     op = webdriver.ChromeOptions()
+    op.add_argument('no-sandbox')
+    op.add_argument('window-size=1920,1080')
+    op.add_argument('disable-gpu')
     op.add_argument("headless")
     op.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
@@ -23,16 +26,20 @@ def get_article_links(query):
         # Fetch the href of the first three links
         for link in link_data[:3]:
             links.append(link.get_attribute("href"))
+        print("links:", links)
     except Exception as e:
         print(f"Unable to extract the links: {e}")
     finally:
-        driver.close()
+        #driver.close()
         return links
 
 # Function to get article data from a given URL
 def get_article_data(href, article_list):
     # Initialize headless Chrome driver with specific user-agent
     op = webdriver.ChromeOptions()
+    op.add_argument('no-sandbox')
+    op.add_argument('window-size=1920,1080')
+    op.add_argument('disable-gpu')
     op.add_argument("headless")
     op.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
@@ -57,9 +64,10 @@ def get_article_data(href, article_list):
             for div in article_body.find_all("div"):
                 if div.text.strip():
                     data += str(div.text)
+        print("Article:", data)
         article_list.append(data)
     except Exception as e:
         print(f"Unable to extract the article text: {e}")
     finally:
-        driver.close()
+        #driver.close()
         return article_list
