@@ -1,7 +1,7 @@
 # RAG chatapp for financial analysis
 
 ### Installation and Runnning
-1. get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git`
+1. get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git` or if you have the zipped repo unzip it.
 2. cd into the repo folder: `cd rag-chatapp`
 3. rename `env.sample` to `.env`:  `mv env.sample .env`
 4. assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
