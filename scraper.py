@@ -64,7 +64,7 @@ def get_article_data(href, article_list):
             for div in article_body.find_all("div"):
                 if div.text.strip():
                     data += str(div.text)
-        print("Article:", data)
+        #print("Article:", data)
         article_list.append(data)
     except Exception as e:
         print(f"Unable to extract the article text: {e}")

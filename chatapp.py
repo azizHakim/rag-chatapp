@@ -1,4 +1,5 @@
 import os
+import json
 import threading
 import streamlit as st
 from llama_index import VectorStoreIndex, ServiceContext, Document
@@ -10,6 +11,8 @@ from scraper import get_article_links, get_article_data
 
 # Load environment variables
 load_dotenv()
+
+max_article_number =  int(os.getenv("MAX_ARTICLE_NUMBER"))
 
 # Function to get lates news related to the prompt
 def get_data(prompt):
@@ -50,7 +53,14 @@ def load_default_data():
 # Function to load latest article data
 @st.cache_resource(show_spinner=False)
 def load_data(article_list):
-    docs = [Document(text=article, id_="source_" + str(i)) for i, article in enumerate(article_list)]
+
+    docs = []
+    for i in range(max_article_number):
+        if i <len(article_list):
+            doc_text = json.dumps(article_list[i])
+        else:
+            doc_text = "blank"
+        docs. append(Document(text=doc_text, id_="source_" + str(i)))
     return docs
 
 # Load default data into index
@@ -72,7 +82,7 @@ if "messages" not in st.session_state.keys():
     ]
 
 # Initialize chat engine
-chat_engine = index.as_chat_engine(chat_mode="condense_plus_context", verbose=True)
+chat_engine = index.as_chat_engine(chat_mode="context", verbose=True)
 
 # User input prompt
 if prompt := st.chat_input("Your question"):
@@ -87,18 +97,13 @@ for message in st.session_state.messages:
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking, great responses takes a few seconds...."):
-            # Build index based on user prompt
+            # Update the index based on user prompt
             article_list = get_data(prompt)
-            if len(article_list) > 0:
-                docs = load_data(article_list)
-                for doc in docs:
-                    if doc.id_ in index.ref_doc_info.keys():
-                        index.update_ref_doc(doc)
-                    else:
-                        index.insert(document=doc, service_ontext=service_context)
+            docs = load_data(article_list)
+            #print("all docs", docs)
+            index.refresh(docs)
+            chat_engine = index.as_chat_engine(chat_mode="context", verbose=True)
 
-                # Update chat engine if new articles are fetched
-                chat_engine = index.as_chat_engine(chat_mode="context", verbose=True)
             # Generate response
             response = chat_engine.chat(prompt)
 
