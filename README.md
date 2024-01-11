@@ -3,7 +3,7 @@
 ### Installation and Runnning
 1. get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git`
 2. cd into the repo folder: `cd rag-chatapp`
-3. rename `.env_sample` to `.env`:  `mv .env_sample .env`
+3. rename `env.sample` to `.env`:  `mv env.sample .env`
 4. assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
 5. (Optional) you can change the openai model by updating the `OPENAI_MODEL`, given that you have access to the model.
 6. (Optional) Also you can change the number of articles to be retrived by changing the value of `MAX_ARTICLE_NUMBER`, default is set to 3.
