@@ -1,15 +1,15 @@
 # RAG chatapp for financial analysis
 
 ### Installation and Runnning
-1. get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git` or if you have the zipped repo unzip it.
-2. cd into the repo folder: `cd rag-chatapp`
-3. rename `env.sample` to `.env`:  `mv env.sample .env`
-4. assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
-5. (Optional) you can change the openai model by updating the `OPENAI_MODEL`, given that you have access to the model.
+1. Get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git` or if you have the zipped repo unzip it.
+2. cd into the root directory: `cd rag-chatapp`
+3. Rename `env.sample` to `.env`:  `mv env.sample .env`
+4. Assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
+5. (Optional) You can change the openai model by updating the `OPENAI_MODEL`, given that you have access to the model.
 6. (Optional) Also you can change the number of articles to be retrived by changing the value of `MAX_ARTICLE_NUMBER`, default is set to 3.
-3. build the docker image: `docker build . -t chatapp`
-4. run the docker image: `docker run --shm-size="2g" -p 8501:8501 chatapp`
-5. finally go to `http://localhost:8501` to enjoy the app
+3. Build the docker image: `docker build . -t chatapp`
+4. Run the docker image: `docker run --shm-size="2g" -p 8501:8501 chatapp`
+5. Finally go to `http://localhost:8501` to enjoy the app
 
 ### Tech stack used
 1. Streamlit, for GUI.
