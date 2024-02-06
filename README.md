@@ -19,4 +19,4 @@
 
 ### Future work
 1. We have implemented "context" as the `chat_mode`, and future exploration of other [chat modes](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/usage_pattern.html#configuring-a-chat-engine) can be considered based on specific requirements.
-2. Evaluate and optimize RAG for better retrival.
+2. Evaluate and optimize RAG for better retrieval.
