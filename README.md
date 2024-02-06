@@ -17,9 +17,6 @@
 2. llama_index, for indexing related news articles.
 3. Selenium, for scrapping news articles.
 
-### How it works
-1. During startup, llama_index reads and stores PDF documents from the `data/` folder into a vector store.
-2. Upon a user's question, up to three relevant articles are fetched from financial times and added to the existing vector store.
-3. With each subsequent question, the index nodes based on user inputs are updated according to the current question. If no article data is found, the corresponding nodes are set to "blank." This approach ensures that the chatbot maintains context to provide answers, and when no relevant articles can be retrieved, the default context in the `data/` folder is utilized for responding.
-4. The `get_article_data` function runs on separate threads for each article to reduce scraping time, enhancing the user experience.
-5. We have implemented "context" as the `chat_mode`, and future exploration of other [chat modes](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/usage_pattern.html#configuring-a-chat-engine) can be considered based on specific requirements.
+### Future work
+1. We have implemented "context" as the `chat_mode`, and future exploration of other [chat modes](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/usage_pattern.html#configuring-a-chat-engine) can be considered based on specific requirements.
+2. Evaluate and optimize RAG for better retrival.
