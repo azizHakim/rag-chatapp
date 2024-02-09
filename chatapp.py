@@ -100,7 +100,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
             # Update the index based on user prompt
             article_list = get_data(prompt)
             docs = load_data(article_list)
-            #print("all docs", docs)
+            print("all docs", docs)
             index.refresh(docs)
             chat_engine = index.as_chat_engine(chat_mode="context", verbose=True)
 

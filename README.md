@@ -1,7 +1,7 @@
 # RAG chatapp for financial analysis
 
 ### Installation and Runnning
-1. Get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git` or if you have the zipped repo unzip it.
+1. Get the repo: `git clone git@github.com:azizHakim/rag-chatapp.git`
 2. cd into the root directory: `cd rag-chatapp`
 3. Rename `env.sample` to `.env`:  `mv env.sample .env`
 4. Assign your openai api key to `OPENAI_API_KEY` variable inside `.env`
@@ -12,11 +12,12 @@
 5. Finally go to `http://localhost:8501` to enjoy the app
 
 ### Tech stack used
-1. Streamlit, for GUI.
-2. OpenAI API, chat operation.
-2. llama_index, for indexing related news articles.
-3. Selenium, for scrapping news articles.
+1. Streamlit==1.29.0
+2. OpenAI API==1.6.1
+2. LlamaIndex==0.9.26
+3. Selenium==4.16.0
+4. Docker
 
 ### Future work
-1. We have implemented "context" as the `chat_mode`, and future exploration of other [chat modes](https://docs.llamaindex.ai/en/stable/module_guides/deploying/chat_engines/usage_pattern.html#configuring-a-chat-engine) can be considered based on specific requirements.
-2. Evaluate and optimize RAG for better retrieval.
+1. Chunking documents before vectorizing for better better retrieval.
+2. Evaluate the retrieval performance.
