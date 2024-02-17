@@ -1,7 +1,7 @@
 # RAG chatapp for financial analysis
 A financial assistant chatbot powered by Retrieval Augmented Generation (RAG) with Streamlit and ChatGPT, Selenium to answer queries regarding finance by scraping through the latest financial news articles.
 
-![rag-chatapp demo](https://github.com/[azizHakim]/[rag-chatapp]/blob/[master]/images/image.jpg?raw=true)
+![rag-chatapp demo](https://github.com/azizHakim/rag-chatapp/blob/master/images/rag-chatapp-demo.png?raw=true)
 
 
 ### ✔️ Installation and Runnning
