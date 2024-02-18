@@ -25,7 +25,7 @@ RUN pip install -r requirements.txt
 
 ENV DISPLAY=:99
 
-EXPOSE 8501
+EXPOSE 8080
 
 RUN mkdir -p ~/.streamlit/
 RUN echo "[general]"  > ~/.streamlit/credentials.toml
@@ -33,4 +33,4 @@ RUN echo "email = \"\""  >> ~/.streamlit/credentials.toml
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "chatapp.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "chatapp.py", "--server.port=8080", "--server.address=0.0.0.0"]
