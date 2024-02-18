@@ -27,9 +27,9 @@ ENV DISPLAY=:99
 
 EXPOSE 8501
 
-#RUN mkdir -p ~/.streamlit/
-#RUN echo "[general]"  > ~/.streamlit/credentials.toml
-#RUN echo "email = \"\""  >> ~/.streamlit/credentials.toml
+RUN mkdir -p ~/.streamlit/
+RUN echo "[general]"  > ~/.streamlit/credentials.toml
+RUN echo "email = \"\""  >> ~/.streamlit/credentials.toml
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
