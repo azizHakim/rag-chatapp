@@ -1,7 +1,8 @@
 # RAG chatapp for financial analysis
 
-A financial assistant chatbot powered by Retrieval Augmented Generation (RAG) with Streamlit and ChatGPT, Selenium to answer queries regarding finance by scraping through the latest financial news articles.
+A financial assistant chatbot powered by Retrieval Augmented Generation (RAG) with Streamlit and ChatGPT, Selenium to answer queries regarding finance by scraping through the latest financial news articles. 
 
+Checkout the live version [here](https://rag-chatapp-sbeilyjgrq-uc.a.run.app/) (deployed on GCP with cloud build and cloud run).
 ![rag-chatapp demo](https://github.com/azizHakim/rag-chatapp/blob/master/images/rag-chatapp-demo.png?raw=true)
 
 
@@ -18,7 +19,7 @@ A financial assistant chatbot powered by Retrieval Augmented Generation (RAG) wi
 3. Build the docker image: 
     - `docker build . -t chatapp`
 4. Run the docker image: 
-     - `docker run --shm-size="2g" -p 8501:8501 chatapp`
+     - `docker run -p 8501:8501 chatapp`
 5. Finally go to `http://localhost:8501` to enjoy the app
 
 
