@@ -12,7 +12,8 @@ from scraper import get_article_links, get_article_data
 # Load environment variables
 load_dotenv()
 
-max_article_number =  int(os.getenv("MAX_ARTICLE_NUMBER"))
+max_article_number = int(os.getenv("MAX_ARTICLE_NUMBER"))
+
 
 # Function to get lates news related to the prompt
 def get_data(prompt):
@@ -33,6 +34,7 @@ def get_data(prompt):
 
     return article_list
 
+
 # Initialize service context with OpenAI model
 service_context = ServiceContext.from_defaults(
     llm=OpenAI(
@@ -42,6 +44,7 @@ service_context = ServiceContext.from_defaults(
     )
 )
 
+
 # Function to load default data
 @st.cache_resource(show_spinner=False)
 def load_default_data():
@@ -50,18 +53,20 @@ def load_default_data():
     index = VectorStoreIndex.from_documents(docs, service_context=service_context)
     return index
 
+
 # Function to load latest article data
 @st.cache_resource(show_spinner=False)
 def load_data(article_list):
 
     docs = []
     for i in range(max_article_number):
-        if i <len(article_list):
+        if i < len(article_list):
             doc_text = json.dumps(article_list[i])
         else:
             doc_text = "blank"
-        docs. append(Document(text=doc_text, id_="source_" + str(i)))
+        docs.append(Document(text=doc_text, id_="source_" + str(i)))
     return docs
+
 
 # Load default data into index
 index = load_default_data()
